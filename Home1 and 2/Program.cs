@@ -144,7 +144,7 @@ namespace Home1_and_2
             try
             {
                 conn = OpenConnection();
-                string cmd = $"UPDATE Us_t SET Login={Login}, Password={Password}, Country={Country} where id={id}";
+                string cmd = $"UPDATE Us_t SET Login='{Login}', Password='{Password}', Country='{Country}' where id={id}";
                 SqlCommand adding = new SqlCommand(cmd, conn);
                 int Result = adding.ExecuteNonQuery();
                 if (Result != 1)
@@ -170,12 +170,14 @@ namespace Home1_and_2
         {
            Add_user("New", "NewPassword", "Country");
            Select_list();
-           Delete_users(4);
+          //Delete_users(4);
            Select_list();
+           Console.ReadKey();
+           Console.Clear();
+           Select_id(6);
+           Update_seres("q1", "q2", "q3", 6);
+           Select_id(6);
             Console.ReadKey();
-            Console.Clear();
-            Select_id(6);
-          
         }
 
 
